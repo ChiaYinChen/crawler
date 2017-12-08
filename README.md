@@ -7,5 +7,8 @@
 - [蘋果即時新聞](https://github.com/ChiaYinChen/crawler/blob/master/apple_realtime_news_crawler.R)
 - [歷期大樂透開獎號碼](https://github.com/ChiaYinChen/crawler/blob/master/lottery_crawler.R)
 - [大樂透開出頭獎商店](https://github.com/ChiaYinChen/crawler/blob/master/lottery_jackpot_stores_crawler.R)
+- [591租屋網](https://github.com/ChiaYinChen/crawler/blob/master/rent591_crawler.R)
 
 ## Python語言網路爬蟲實作練習
+- [台北票房觀測站(年度週末冠軍)](https://github.com/ChiaYinChen/crawler/blob/master/movie_weekend_champion_crawler.py)
+- [台北票房觀測站(年度排名)](https://github.com/ChiaYinChen/crawler/blob/master/movie_year_rank_crawler.py)
