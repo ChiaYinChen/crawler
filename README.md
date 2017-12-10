@@ -12,3 +12,4 @@
 ## Python 語言網路爬蟲實作練習
 - [台北票房觀測站 (年度週末冠軍)](https://github.com/ChiaYinChen/crawler/blob/master/movie_weekend_champion_crawler.py)
 - [台北票房觀測站 (年度排名)](https://github.com/ChiaYinChen/crawler/blob/master/movie_year_rank_crawler.py)
+- [Yahoo 電影評論 (年度排行榜)](https://github.com/ChiaYinChen/crawler/blob/master/yahoo_movie_comment_crawler.py)
