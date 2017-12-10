@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from datetime import datetime
 
 # 台北票房觀測站(年度週末冠軍)
 def movie_weekend_champion_crawler(year):
@@ -8,6 +9,7 @@ def movie_weekend_champion_crawler(year):
     response = requests.get(url)
     response.encoding ="utf-8"
     soup = BeautifulSoup(response.text, 'lxml')
+    crawling_time = datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
     
     all_rows = soup.table.find_all("tr") # 找出所有 tr 的標籤，並存成 list
     
@@ -20,6 +22,9 @@ def movie_weekend_champion_crawler(year):
     
     movie_df.columns.values[7] = "冠軍比例"
     movie_df.insert(1, "年度", str(year))
+    movie_df['crawling_time'] = crawling_time
+    movie_df['crawling_time'] = pd.to_datetime(movie_df['crawling_time'])
+    movie_df.columns = [u'週次', u'年度', u'日期', u'週末票房總和', u'漲跌幅', u'冠軍片名', u'英文片名', u'週末票房冠軍', u'冠軍比例', 'crawling_time']
     return(movie_df)
     # 冠軍比例 = 冠軍週末票房 / 北市週末總票房
 
@@ -29,4 +34,15 @@ champion_2017 = movie_weekend_champion_crawler(year = 2017)
 champion_2016 = movie_weekend_champion_crawler(year = 2016)
 current_year_champion = champion_2017.append(champion_2016)
 
+# 結果存成 CSV
 current_year_champion.to_csv("csv_results/movie_weekend_champion.csv", index = False, encoding = "utf-8")
+
+# 結果存進資料庫
+import sqlite3
+with sqlite3.connect('movie.db') as db:
+    current_year_champion.to_sql('weekend_champion', con = db, if_exists = 'replace')
+
+# 從資料庫讀取資料到 DataFrame
+with sqlite3.connect('movie.db') as db:
+    df = pd.read_sql_query('select * from weekend_champion', con = db)
+
