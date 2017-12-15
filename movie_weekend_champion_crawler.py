@@ -5,7 +5,7 @@ from datetime import datetime
 
 # 台北票房觀測站(年度週末冠軍)
 def movie_weekend_champion_crawler(year):
-    url = "http://www.taipeibo.com/yearly/" + str(year)
+    url = "http://www.taipeibo.com/yearly/{}".format(year)
     response = requests.get(url)
     response.encoding ="utf-8"
     soup = BeautifulSoup(response.text, 'lxml')
