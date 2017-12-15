@@ -13,3 +13,4 @@
 - [台北票房觀測站 (年度週末冠軍)](https://github.com/ChiaYinChen/crawler/blob/master/movie_weekend_champion_crawler.py)
 - [台北票房觀測站 (年度排名)](https://github.com/ChiaYinChen/crawler/blob/master/movie_year_rank_crawler.py)
 - [Yahoo 電影評論 (年度排行榜)](https://github.com/ChiaYinChen/crawler/blob/master/yahoo_movie_comment_crawler.py)
+- [Facebook 粉絲專業資訊](https://github.com/ChiaYinChen/crawler/blob/master/fanpage_crawler.py)
