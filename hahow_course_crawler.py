@@ -90,3 +90,9 @@ hahow_course_info = hahow_course_crawler()
 # 結果存成 CSV
 hahow_course_info.to_csv('csv_results/hahow_course.csv', index = False, encoding = "utf-8")
 
+# 結果存進資料庫
+import sqlite3
+with sqlite3.connect('course.db') as db:
+    hahow_course_info.to_sql('hahow', con = db, if_exists = 'replace')
+
+
