@@ -78,7 +78,7 @@ lottery_crawler <- function(year) {
 
 # 呼叫函數
 current_lottery <- data.frame()
-for(i in 2017:2004){
+for(i in 2018:2004){
   single_year_lottery <- lottery_crawler(year = i)
   current_lottery <- rbind(current_lottery, single_year_lottery)
 }
